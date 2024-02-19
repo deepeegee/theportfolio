@@ -59,6 +59,7 @@ function Navbar() {
             spacing={2}
           >
             <Button
+              underline="hover"
               sx={{
                 // display: { xs: "none", md: "flex" },
                 fontFamily: "",
