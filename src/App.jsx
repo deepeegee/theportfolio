@@ -2,13 +2,12 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Navbar from './components/Navbar';
 import Navbar2 from './components/navabr2';
-
+import Typed from './components/Typed';
 import Rename from './components/Rename';
 import Hero from './pages/Hero';
 import ScrollToTopButton from './components/Scrolltotop';
-import Stacks from './components/Stacks';
-
-
+import Experience from './components/Experience/Experience';
+import MediaCard from './components/cards';
 
 function App() {
 
@@ -16,16 +15,12 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <br/>
-      <Stacks />
-      <h1>Let's Cook</h1> 
-      <Button variant="outlined">On the Gas</Button>;
-      <h1>Let's jasffffffffffffffffffffffffffffffffffflkmknsDV<br/>hhhhhsfffffffffffflkCook</h1> 
-
+      <Experience />
+      <Typed />
       {/* <HomeNavbar /> */}
       {/* <Rename /> */}
       <ScrollToTopButton />
-
+      <MediaCard/>
 
     </>
   )

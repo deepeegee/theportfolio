@@ -9,8 +9,15 @@ import {
 import HeroBg from "../assets/bggg.png";
 import { Link } from "react-router-dom";
 import StyledButton from "../components/Button";
+import { ReactTyped } from "react-typed";
+import React, { useState } from "react";
 
 export default function Hero() {
+  const [key, setKey] = useState(0);
+
+  const restartTyping = () => {
+    setKey((prevKey) => prevKey + 1);
+  };
   return (
     <>
       <Box
@@ -21,9 +28,9 @@ export default function Hero() {
         <Container maxWidth="lg">
           <Stack
             pt={{ xs: 15, md: 10 }}
-            alignItems={"center"}
-            justifyContent={"center"}
-            gap={3}
+            // alignItems={"center"}
+            // justifyContent={"center"}
+            gap={6}
             textAlign={"center"}
           >
             <Typography
@@ -31,8 +38,22 @@ export default function Hero() {
               fontWeight={500}
               color={"black"}
               fontSize={{ xs: "2.5rem", sm: "3rem", md: "3.2rem" }}
+              align="left"
             >
-              Hi, My name is Tosin <br /> I am a Frontend developer
+              Hey there! My name is
+              <br />
+              Tosin Sajo
+              <br />I am a {""}
+              <ReactTyped
+                key={key}
+                backSpeed={50}
+                strings={["Frontend Developer", "Dancer", "Software Developer"]}
+                typeSpeed={50}
+                onComplete={restartTyping}
+                typedRef={function noRefCheck() {}}
+                style={{ color: "#C61036" }}
+                cursorChar=">"
+              />
             </Typography>
             <Typography
               variant="h5"
@@ -100,12 +121,11 @@ export default function Hero() {
         </Container>
         <Container sx={{ flex: 1 }}>
           <Stack>
-            <img src={HeroBg} alt="" width={400} border={0} />
+            <img src={HeroBg} alt="" width={500} border={0} />
           </Stack>
         </Container>
       </Box>
       <Stack alignItems={"center"} justifyContent={"center"} padding={"30px"}>
-        <Typography color={"red"}>lfggg</Typography>
         <StyledButton text={"Click Me"} link={"/"}></StyledButton>
       </Stack>
     </>
