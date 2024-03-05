@@ -3,16 +3,16 @@ import { styled } from "@mui/material/styles";
 import Switch, { switchClasses } from "@mui/material/Switch";
 
 export const SwitchTextTrack = styled(Switch)({
-  width: 80,
-  height: 48,
-  padding: 8,
+  width: 75,
+  height: 40,
+  padding: 6,
   [`& .${switchClasses.switchBase}`]: {
     padding: 11,
     color: "#ff6a00",
   },
   [`& .${switchClasses.thumb}`]: {
-    width: 26,
-    height: 26,
+    width: 22,
+    height: 19,
     backgroundColor: "#fff",
   },
   [`& .${switchClasses.track}`]: {
@@ -33,7 +33,7 @@ export const SwitchTextTrack = styled(Switch)({
     },
     "&:before": {
       content: '"lumos"',
-      left: 2,
+      left: 5,
       opacity: 0,
     },
     "&:after": {
@@ -44,7 +44,7 @@ export const SwitchTextTrack = styled(Switch)({
   [`& .${switchClasses.checked}`]: {
     [`&.${switchClasses.switchBase}`]: {
       color: "#185a9d",
-      transform: "translateX(32px)",
+      transform: "translateX(36px)",
       "&:hover": {
         backgroundColor: "rgba(24,90,257,0.08)",
       },

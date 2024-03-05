@@ -1,4 +1,3 @@
-// theme.js
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -15,6 +14,7 @@ const theme = createTheme({
     text: {
       primary: "#333",
     },
+    mode: "light", // Set the initial color mode to light
   },
   typography: {
     fontFamily: "Rethink Sans, sans-serif", // Use "Rethink Sans" as the font family
@@ -46,6 +46,7 @@ const darkTheme = createTheme({
     text: {
       primary: "#fff", // Light text color for dark mode
     },
+    mode: "dark", // Set the color mode to dark
   },
   typography: {
     fontFamily: "Rethink Sans, sans-serif", // Font family remains the same

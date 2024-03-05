@@ -21,9 +21,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import MediaCard from "./Cards/cards";
-import "./Experience.css"
+import "./Experience.css";
 
-export default function Experience({darkMode}) {
+export default function Experience({ darkMode }) {
   return (
     <>
       <Container maxWidth="xl">
@@ -34,28 +34,28 @@ export default function Experience({darkMode}) {
               textAlign={"center"}
               variant="h4"
               fontWeight={600}
-              sx={{color: darkMode ? "white" : "black"}}
+              sx={{ color: darkMode ? "white" : "black" }}
             >
               Experience
             </Typography>
             <Stack
-  direction={{ xs: "row", md: "row" }} // Adjust the direction based on the screen size
-  spacing={2} // Adjust the spacing between images
-  justifyContent="center"
-  py={{ xs: 8, md: 10 }}
-  gap={{ xs: "1rem", md: "4rem" }} // Adjust the gap between image rows/columns based on the screen size
->
-  {stackImgs.map((itr, id) => (
-    <Box
-      key={id}
-      component={"img"}
-      src={itr}
-      height={{ xs: "50px", md: "70px" }} // Adjust the height based on the screen size
-      width={{ xs: "100%", md: "auto" }} // Adjust the width based on the screen size
-    />
-  ))}
-</Stack>
-
+              direction={{ xs: "row", md: "row" }} // Adjust the direction based on the screen size
+              spacing={2} // Adjust the spacing between images
+              justifyContent="center"
+              py={{ xs: 8, md: 10 }}
+              
+              gap={{ xs: "1rem", md: "4rem" }} // Adjust the gap between image rows/columns based on the screen size
+            >
+              {stackImgs.map((itr, id) => (
+                <Box
+                  key={id}
+                  component={"img"}
+                  src={itr}
+                  height={{ xs: "50px", md: "60px" }} // Adjust the height based on the screen size
+                  width={{ xs: "80%", md: "auto" }} // Adjust the width based on the screen size
+                />
+              ))}
+            </Stack>
           </Stack>
         </Stack>
       </Container>
@@ -69,8 +69,8 @@ export default function Experience({darkMode}) {
         >
           Projects
         </Typography>
-        <br/>
-        <br/>
+        <br />
+        <br />
 
         <Swiper
           modules={[Navigation, Pagination, A11y]}
@@ -81,8 +81,8 @@ export default function Experience({darkMode}) {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           style={{
-            '--swiper-navigation-color': darkMode ? "#fff" : "#000",
-            '--swiper-pagination-color': darkMode ? "#fff" : "#000",
+            "--swiper-navigation-color": darkMode ? "#fff" : "#000",
+            "--swiper-pagination-color": darkMode ? "#fff" : "#000",
           }}
         >
           <SwiperSlide>
@@ -129,8 +129,8 @@ export default function Experience({darkMode}) {
               <MediaCard projectIndex={3} />
             </Stack>
           </SwiperSlide>
-          <br/>
-          <br/>
+          <br />
+          <br />
         </Swiper>
       </Container>
     </>

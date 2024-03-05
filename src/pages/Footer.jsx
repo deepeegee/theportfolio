@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { socialHolder } from "../utils/navLinks";
+import Contact from "../assets/contact-me.png";
+
 
 const headingStyle = {
   // Add your heading styles here
@@ -35,9 +37,9 @@ const centerStyle = {
 
 export default function HomeFooter() {
   return (
-    <Box py={{ xs: 6, md: 1 }} minHeight={100} >
+    <Box py={{ xs: 6, md: 1 }} minHeight={100}>
       <Box>
-      <Container sx={{ flex: 1 }}>
+        <Container sx={{ flex: 1 }}>
           <Stack>
             <img
               src
@@ -52,23 +54,27 @@ export default function HomeFooter() {
           </Stack>
         </Container>
       </Box>
-      <Stack style={centerStyle}>
-          <h1 style={headingStyle} id="contact-heading">
-            Contact Me
-          </h1>
-          <a
-            href="mailto:tosinorunesajo@gmail.com"
-            id="email"
-            style={emailLinkStyle}
-          >
-            <p>tosinorunesajo@gmail.com</p>
-          </a>
-          <a href="" target="_blank" rel="noreferrer" id="meeting">
-            <button style={buttonStyle}>Book a Meeting</button>
-          </a>
-        </Stack>
-      <Container maxWidth="lg"> 
-        
+      <Stack
+        alignItems={"center"}
+        style={centerStyle}
+        justifyContent={"center"}
+      >
+        <img src={Contact} alt="" width={200} border={0} />
+        <h1 style={headingStyle} id="contact-heading">
+          Contact Me
+        </h1>
+        <a
+          href="mailto:tosinorunesajo@gmail.com"
+          id="email"
+          style={emailLinkStyle}
+        >
+          <p>tosinorunesajo@gmail.com</p>
+        </a>
+        <a href="" target="_blank" rel="noreferrer" id="meeting">
+          <button style={buttonStyle}>Book a Meeting</button>
+        </a>
+      </Stack>
+      <Container maxWidth="lg">
         <Stack
           direction={"row"}
           flexWrap={"wrap"}
@@ -83,14 +89,14 @@ export default function HomeFooter() {
           ></Stack>
         </Stack>
         <Box height={1.5} my={2} bgcolor={"grey.100"} />
-        <Box py={2} minHeight={50} >
+        <Box py={2} minHeight={50}>
           <Stack
             direction={"row"}
             flexWrap={"wrap"}
             justifyContent={"space-between"}
             gap={"1rem"}
           >
-            <Typography variant="subtitle2" >
+            <Typography variant="subtitle2">
               © {new Date().getFullYear()} All right Reserved
             </Typography>
             <Stack direction={"row"} alignItems={"center"} gap={"1rem"}>
