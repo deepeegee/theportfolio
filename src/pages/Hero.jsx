@@ -21,22 +21,27 @@ export default function Hero() {
   return (
     <>
       <Box
-        sx={{ justifyContent: "space-between", display: "flex" }}
+        sx={{
+          justifyContent: "space-between",
+          display: "flex",
+          padding: { xs: 4, md: 8 },
+          flexDirection: { xs: "column", md: "row" },
+        }}
+
         //   minHeight={600}
         //   sx={{ backgroundImage: `url(${HeroBg})`, backgroundSize: "cover" }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ flex: 2 }}>
           <Stack
             pt={{ xs: 15, md: 10 }}
             // alignItems={"center"}
             // justifyContent={"center"}
-            gap={6}
-            textAlign={"center"}
+            gap={4}
+            textAlign={{ xs: "center", md: "left" }}
           >
             <Typography
               variant="h2"
               fontWeight={500}
-              color={"black"}
               fontSize={{ xs: "2.5rem", sm: "3rem", md: "3.2rem" }}
               align="left"
             >
@@ -47,7 +52,7 @@ export default function Hero() {
               <ReactTyped
                 key={key}
                 backSpeed={50}
-                strings={["Frontend Developer", "Dancer", "Software Developer"]}
+                strings={["Frontend Developer", "Network Engineer", "Software Developer"]}
                 typeSpeed={50}
                 onComplete={restartTyping}
                 typedRef={function noRefCheck() {}}
@@ -59,13 +64,13 @@ export default function Hero() {
               variant="h5"
               maxWidth={768}
               fontWeight={400}
-              color={"black"}
+              align="left"
             >
               When the world gives you bugs, I code them into features.
               <br />
-              With a few years of experience in digital product design, I'm
+              With a few years of experience in cheffing, I'm
               passionate about creating engaging and functional solutions that
-              meet users' needs.
+              meet users' needs (cooking)
             </Typography>
 
             {/* <Box
@@ -81,12 +86,12 @@ export default function Hero() {
           </Stack>
           <br />
           <Stack
-            direction={"row"}
-            gap={"1.5rem"}
-            alignItems={"center"}
-            justifyContent={"center"}
+            direction={{ xs: "column", md: "row" }}
+            gap={{ xs: 2, md: 1.5 }}
+            alignItems={{ xs: "center", md: "flex-start" }}
+            justifyContent={{ xs: "center", md: "flex-start" }}
           >
-            {/* <Link to={"/"}> */}
+            {/* <Link to={"/"}>
             <Button
               size="large"
               variant="contained"
@@ -97,7 +102,7 @@ export default function Hero() {
               }}
             >
               Get Started
-            </Button>
+            </Button> */}
             {/* </Link> */}
             {/* <Link to={"/"}> */}
             {/* <Button
@@ -114,20 +119,25 @@ export default function Hero() {
             </Button> */}
             {/* </Link> */}
           </Stack>
-
-          <Typography color={"red"} variant="h5">
-            7-day trial. No credit card required.
-          </Typography>
         </Container>
         <Container sx={{ flex: 1 }}>
           <Stack>
-            <img src={HeroBg} alt="" width={500} border={0} />
+            <img
+              src={HeroBg}
+              alt=""
+              width={{ xs: "60px", md: "80%", lg: 370 }}
+              mx="auto" // Center the image horizontally
+              sx={{
+                display: { xs: "block", md: "none" },
+                marginBottom: { xs: 4, md: 0 },
+              }}
+            />
           </Stack>
         </Container>
       </Box>
-      <Stack alignItems={"center"} justifyContent={"center"} padding={"30px"}>
+      {/* <Stack alignItems={"center"} justifyContent={"center"} padding={"30px"}>
         <StyledButton text={"Click Me"} link={"/"}></StyledButton>
-      </Stack>
+      </Stack> */}
     </>
   );
 }

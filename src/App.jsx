@@ -1,29 +1,31 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
+import React, { useState } from 'react';
+import { ThemeProvider, CssBaseline, Button } from '@mui/material';
 import Navbar from './components/Navbar';
-import Navbar2 from './components/navabr2';
-import Typed from './components/Typed';
-import Rename from './components/Rename';
 import Hero from './pages/Hero';
-import ScrollToTopButton from './components/Scrolltotop';
 import Experience from './components/Experience/Experience';
-import MediaCard from './components/cards';
+import Typed from './components/Typed';
+import ScrollToTopButton from './components/Scrolltotop';
+import Footer from './pages/Footer';
+import { theme, darkTheme } from './Theme/Theme';
+import MediaCard from './components/Experience/Cards/cards';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
 
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Experience />
-      <Typed />
-      {/* <HomeNavbar /> */}
-      {/* <Rename /> */}
-      <ScrollToTopButton />
-      <MediaCard/>
-
-    </>
-  )
+    <ThemeProvider theme={darkMode ? darkTheme : theme}>
+      <CssBaseline />
+        <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <Hero />
+        <Experience darkMode={darkMode} />
+        <ScrollToTopButton />
+        <Footer />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

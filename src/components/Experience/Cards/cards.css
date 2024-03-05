@@ -1,0 +1,21 @@
+.custom-button {
+    text-transform: none;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+    transition: color 0.3s, background-color 0.3s;
+  }
+  
+  .custom-button.clicked {
+    background-color: red; /* Change this to the desired color on click */
+    color: white; /* Change this to the desired text color on click */
+  }
+  
+  .custom-button:hover {
+    color: green; /* Change this to the desired text color on hover */
+  }
+  
+  .custom-button.clicked:hover {
+    color: white; /* Change this to the desired text color on hover after click */
+  }
+  

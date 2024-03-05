@@ -10,6 +10,8 @@ import {
   Button,
   Box,
   Backdrop,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
@@ -18,10 +20,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import MediaCard from "../cards";
-import {experienceData} from "../Experience/Experience-data";
+import MediaCard from "./Cards/cards";
+import "./Experience.css"
 
-export default function Experience() {
+export default function Experience({darkMode}) {
   return (
     <>
       <Container maxWidth="xl">
@@ -31,22 +33,29 @@ export default function Experience() {
             <Typography
               textAlign={"center"}
               variant="h4"
-              color={"BLACK"}
               fontWeight={600}
+              sx={{color: darkMode ? "white" : "black"}}
             >
               Experience
             </Typography>
             <Stack
-              direction="row"
-              spacing={10}
-              justifyContent={"center"}
-              py={{ xs: 8, md: 10 }}
-              gap={"4rem"}
-            >
-              {stackImgs.map((itr, id) => (
-                <Box key={id} component={"img"} src={itr} height={"70px"} />
-              ))}
-            </Stack>
+  direction={{ xs: "row", md: "row" }} // Adjust the direction based on the screen size
+  spacing={2} // Adjust the spacing between images
+  justifyContent="center"
+  py={{ xs: 8, md: 10 }}
+  gap={{ xs: "1rem", md: "4rem" }} // Adjust the gap between image rows/columns based on the screen size
+>
+  {stackImgs.map((itr, id) => (
+    <Box
+      key={id}
+      component={"img"}
+      src={itr}
+      height={{ xs: "50px", md: "70px" }} // Adjust the height based on the screen size
+      width={{ xs: "100%", md: "auto" }} // Adjust the width based on the screen size
+    />
+  ))}
+</Stack>
+
           </Stack>
         </Stack>
       </Container>
@@ -56,58 +65,13 @@ export default function Experience() {
           justifyItems={"center"}
           textAlign={"center"}
           variant="h4"
-          color={"BLACK"}
           fontWeight={600}
         >
           Projects
         </Typography>
-        {/* <Swiper
-          modules={[Navigation, Pagination, A11y]}
-          spaceBetween={16}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
-        >
-          <SwiperSlide>
-            Slide 1 <img src={Prof} alt="" width={600} border={0} />
-          </SwiperSlide>
-          <SwiperSlide>
-            Slide 2 <img src={Prof} alt="" width={200} border={0} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Stack
-              spacing={2}
-              alignItems={"center"}
-              justifyItems={"center"}
-              mx={"auto"}
-              maxWidth={768}
-            >
-              <br />
-              <br />
+        <br/>
+        <br/>
 
-              <br />
-              <br />
-
-              <MediaCard />
-            </Stack>
-          </SwiperSlide>
-          <SwiperSlide>
-            Slide 4 <img src={Prof} alt="" width={200} border={0} />
-            <Button
-              size="large"
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                borderRadius: "12px",
-                bgcolor: "black",
-              }}
-            >
-              Get Started
-            </Button>
-          </SwiperSlide>
-        </Swiper> */}
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={16}
@@ -116,9 +80,12 @@ export default function Experience() {
           pagination={{ clickable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
+          style={{
+            '--swiper-navigation-color': darkMode ? "#fff" : "#000",
+            '--swiper-pagination-color': darkMode ? "#fff" : "#000",
+          }}
         >
-          {experienceData.map((experience, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide>
             <Stack
               spacing={2}
               alignItems={"center"}
@@ -126,14 +93,44 @@ export default function Experience() {
               mx={"auto"}
               maxWidth={768}
             >
-              <br />
-              <br />
-              <br />
-              <br />
-              <MediaCard experience={experienceData} />
+              <MediaCard projectIndex={0} />
             </Stack>
           </SwiperSlide>
-        ))}
+          <SwiperSlide>
+            <Stack
+              spacing={2}
+              alignItems={"center"}
+              justifyItems={"center"}
+              mx={"auto"}
+              maxWidth={768}
+            >
+              <MediaCard projectIndex={1} />
+            </Stack>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Stack
+              spacing={2}
+              alignItems={"center"}
+              justifyItems={"center"}
+              mx={"auto"}
+              maxWidth={768}
+            >
+              <MediaCard projectIndex={2} />
+            </Stack>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Stack
+              spacing={2}
+              alignItems={"center"}
+              justifyItems={"center"}
+              mx={"auto"}
+              maxWidth={768}
+            >
+              <MediaCard projectIndex={3} />
+            </Stack>
+          </SwiperSlide>
+          <br/>
+          <br/>
         </Swiper>
       </Container>
     </>

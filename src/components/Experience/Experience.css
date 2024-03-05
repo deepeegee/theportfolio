@@ -1,0 +1,14 @@
+/* Experience.css */
+.dark-mode-swiper {
+    background-color: #121212; /* Dark background color for dark mode */
+    color: #fff; /* Light text color for dark mode */
+  }
+  
+  /* Update swiper navigation and pagination color for dark mode */
+  .dark-mode-swiper .swiper-button-next,
+  .dark-mode-swiper .swiper-button-prev,
+  .dark-mode-swiper .swiper-pagination-bullet {
+    background-color: #fff; /* White color for dark mode */
+    color: #000; /* Black color for dark mode */
+  }
+  
