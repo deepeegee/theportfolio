@@ -3,7 +3,6 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import { socialHolder } from "../utils/navLinks";
 import Contact from "../assets/contact-me.png";
 
-
 const headingStyle = {
   // Add your heading styles here
   fontSize: "2rem",
@@ -59,9 +58,9 @@ export default function HomeFooter() {
         style={centerStyle}
         justifyContent={"center"}
       >
-        <img src={Contact} alt="" width={200} border={0} />
+        <img src={Contact} alt="" width={190} border={0} />
         <h1 style={headingStyle} id="contact-heading">
-          Contact Me
+          Get In Touch{" "}
         </h1>
         <a
           href="mailto:tosinorunesajo@gmail.com"

@@ -3,14 +3,23 @@ import {
   Container,
   Stack,
   Typography,
-  makeStyles,
-  Button,
+  Grid,
+  IconButton,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import HeroBg from "../assets/bggg.png";
-import { Link } from "react-router-dom";
-import StyledButton from "../components/Button";
 import { ReactTyped } from "react-typed";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLinkedin,
+  faGithub,
+  faXTwitter,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
+import gsap from "gsap";
 
 export default function Hero() {
   const [key, setKey] = useState(0);
@@ -18,126 +27,149 @@ export default function Hero() {
   const restartTyping = () => {
     setKey((prevKey) => prevKey + 1);
   };
+  const theme = useTheme();
+  const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const iconSize = isSmScreen ? "1em" : "1.4em";
+
+  const intro1 = useRef(null);
+  const intro2 = useRef(null);
+
+
+  useEffect(() => {
+    const el = intro1;
+    gsap.fromTo(
+      el.current,
+      { opacity: 0, x: -100 },
+      { opacity: 1, x: 0, duration: 4, ease: "power3.out" }
+    );
+    const el2 = intro2;
+    gsap.fromTo(
+      el2.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 4, ease: "power3.out" }
+    );
+  }, []);
+
   return (
     <>
-      <Box
-        sx={{
-          justifyContent: "space-between",
-          display: "flex",
-          padding: { xs: 4, md: 8 },
-          flexDirection: { xs: "column", md: "row" },
-        }}
-
-        //   minHeight={600}
-        //   sx={{ backgroundImage: `url(${HeroBg})`, backgroundSize: "cover" }}
-      >
-        <Container maxWidth="lg" sx={{ flex: 2 }}>
-          <Stack
-            pt={{ xs: 15, md: 10 }}
-            // alignItems={"center"}
-            // justifyContent={"center"}
-            gap={4}
-            textAlign={{ xs: "center", md: "left" }}
-          >
-            <Typography
-              variant="h2"
-              fontWeight={500}
-              fontSize={{ xs: "2.5rem", sm: "3rem", md: "3.2rem" }}
-              align="left"
+      <Container maxWidth="lg">
+        <Grid container spacing={1}>
+          {/* Typography Container */}
+          <Grid item xs={12} md={7}>
+            <Stack
+              ref={intro1}
+              pt={{ xs: 15, md: 12 }}
+              gap={3}
+              textAlign={{ xs: "center", md: "left" }}
+              padding="50px"
             >
-              Hey there! My name is
-              <br />
-              Tosin Sajo
-              <br />I am a {""}
-              <ReactTyped
-                key={key}
-                backSpeed={50}
-                strings={["Frontend Developer", "Network Engineer", "Software Developer"]}
-                typeSpeed={50}
-                onComplete={restartTyping}
-                typedRef={function noRefCheck() {}}
-                style={{ color: "#C61036" }}
-                cursorChar=">"
+              <Typography
+                variant="h5"
+                fontWeight={500}
+                align="left"
+                fontSize={{ xs: "1rem", sm: "1.4rem", md: "1.5rem" }}
+              >
+                Hey there! My name is
+              </Typography>
+              <Typography
+                variant="h2"
+                fontWeight={500}
+                fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
+                align="left"
+              >
+                Tosin Sajo.
+                <br />I am a {""}
+                <ReactTyped
+                  key={key}
+                  backSpeed={50}
+                  strings={[
+                    "Frontend Developer",
+                    "Network Engineer",
+                    "Software Developer",
+                  ]}
+                  typeSpeed={50}
+                  onComplete={restartTyping}
+                  typedRef={function noRefCheck() {}}
+                  style={{ color: "#C61036" }}
+                  cursorChar=">"
+                />
+              </Typography>
+              <Typography
+                variant="h5"
+                fontWeight={400}
+                align="left"
+                fontSize={{ xs: "1rem", sm: "1.4rem", md: "1.5rem" }}
+              >
+                When the world gives you bugs, I code them into features.
+                <br />
+                With a few years of experience in <i>cheffing</i>, I'm
+                passionate about creating engaging and functional solutions that
+                meet users' tastes
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <IconButton>
+                    <FontAwesomeIcon
+                      icon={faLinkedin}
+                      style={{ fontSize: iconSize }}
+                    />
+                  </IconButton>
+                </Grid>
+                <Grid item>
+                  <IconButton>
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      style={{ fontSize: iconSize }}
+                    />
+                  </IconButton>
+                </Grid>
+                <Grid item>
+                  <IconButton>
+                    <FontAwesomeIcon
+                      icon={faXTwitter}
+                      style={{ fontSize: iconSize }}
+                    />
+                  </IconButton>
+                </Grid>
+                <Grid item>
+                  <IconButton>
+                    <FontAwesomeIcon
+                      icon={faWhatsapp}
+                      style={{ fontSize: iconSize }}
+                    />
+                  </IconButton>
+                </Grid>
+              </Grid>
+            </Stack>
+          </Grid>
+
+          {/* Image Container */}
+          <Grid
+            item
+            xs={10}
+            md={5}
+            sx={{ display: { xs: "none", md: "block" } }}
+          >
+            <Stack
+              ref={intro2}
+              pt={{ xs: 4, md: 8 }}
+              padding={{ xs: "60px", md: "20px" }}
+            >
+              <img
+                src={HeroBg}
+                alt=""
+                mx="auto" // Center the image horizontally
+                sx={{
+                  display: "block",
+                  width: { xs: "600px", sm: "100px", md: "200px" }, // Specify different widths
+                  marginBottom: { xs: 4, md: 0 },
+                }}
               />
-            </Typography>
-            <Typography
-              variant="h5"
-              maxWidth={768}
-              fontWeight={400}
-              align="left"
-            >
-              When the world gives you bugs, I code them into features.
-              <br />
-              With a few years of experience in cheffing, I'm
-              passionate about creating engaging and functional solutions that
-              meet users' needs (cooking)
-            </Typography>
-
-            {/* <Box
-            mt={2}
-            height={{ xs: 250, md: 400 }}
-            width={{ xs: "100%", sm: "90%", lg: 1000 }}
-            sx={{
-              backgroundImage: `url(${HeroBgTwo})`,
-              backgroundSize: "cover",
-              borderRadius: "16px 16px 0 0",
-            }}
-          ></Box> */}
-          </Stack>
-          <br />
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            gap={{ xs: 2, md: 1.5 }}
-            alignItems={{ xs: "center", md: "flex-start" }}
-            justifyContent={{ xs: "center", md: "flex-start" }}
-          >
-            {/* <Link to={"/"}>
-            <Button
-              size="large"
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                borderRadius: "12px",
-                bgcolor: "black",
-              }}
-            >
-              Get Started
-            </Button> */}
-            {/* </Link> */}
-            {/* <Link to={"/"}> */}
-            {/* <Button
-              size="large"
-              variant="outlined"
-              sx={{
-                bgcolor: "white",
-                textTransform: "none",
-                color: "black",
-                borderRadius: "12px",
-              }}
-            >
-              Become an Affiliate
-            </Button> */}
-            {/* </Link> */}
-          </Stack>
-        </Container>
-        <Container sx={{ flex: 1 }}>
-          <Stack>
-            <img
-              src={HeroBg}
-              alt=""
-              width={{ xs: "60px", md: "80%", lg: 370 }}
-              mx="auto" // Center the image horizontally
-              sx={{
-                display: { xs: "block", md: "none" },
-                marginBottom: { xs: 4, md: 0 },
-              }}
-            />
-          </Stack>
-        </Container>
-      </Box>
-      {/* <Stack alignItems={"center"} justifyContent={"center"} padding={"30px"}>
-        <StyledButton text={"Click Me"} link={"/"}></StyledButton>
-      </Stack> */}
+            </Stack>
+          </Grid>
+        </Grid>
+      </Container>
     </>
   );
 }

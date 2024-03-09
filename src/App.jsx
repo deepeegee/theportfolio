@@ -9,6 +9,8 @@ import { theme, darkTheme } from "./Theme/Theme";
 import { SwitchTextTrack } from "./mui-treasury/switch-textTrack";
 import { useMediaQuery } from "@mui/material";
 import DrawerMobileNavigation from "./components/Navbar/Sidebar"
+import TwoTextBoxes from "./components/navabr2";
+
 
 function App() {
   const [darkMode, setDarkMode ] = useState(false);
@@ -40,6 +42,7 @@ function App() {
       <Experience darkMode={darkMode} />
       <ScrollToTopButton />
       <Footer />
+      <TwoTextBoxes/>
     </ThemeProvider>
   );
 }
