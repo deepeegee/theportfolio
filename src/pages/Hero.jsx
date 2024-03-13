@@ -23,7 +23,6 @@ import gsap from "gsap";
 gsap.registerPlugin(useGSAP);
 import { useGSAP } from "@gsap/react";
 
-
 export default function Hero() {
   const [key, setKey] = useState(0);
 
@@ -37,7 +36,6 @@ export default function Hero() {
 
   const intro1 = useRef(null);
   const intro2 = useRef(null);
-
 
   useEffect(() => {
     const el = intro1;
@@ -62,7 +60,7 @@ export default function Hero() {
           <Grid item xs={12} md={7}>
             <Stack
               ref={intro1}
-              pt={{ xs: 15, md: 12 }}
+              pt={{ xs: 12, md: 4 }}
               gap={3}
               textAlign={{ xs: "center", md: "left" }}
               padding="50px"
@@ -71,7 +69,7 @@ export default function Hero() {
                 variant="h5"
                 fontWeight={500}
                 align="left"
-                fontSize={{ xs: "1rem", sm: "1.4rem", md: "1.5rem" }}
+                fontSize={{ xs: "1.2rem", sm: "1.4rem", md: "1.5rem" }}
               >
                 Hey there! My name is
               </Typography>
@@ -83,26 +81,28 @@ export default function Hero() {
               >
                 Tosin Sajo.
                 <br />I am a {""}
-                <ReactTyped
-                  key={key}
-                  backSpeed={50}
-                  strings={[
-                    "Frontend Developer",
-                    "Network Engineer",
-                    "Software Developer",
-                  ]}
-                  typeSpeed={50}
-                  onComplete={restartTyping}
-                  typedRef={function noRefCheck() {}}
-                  style={{ color: "#C61036" }}
-                  cursorChar=">"
-                />
+                <Stack style={{ height: "65px" }}>
+                  <ReactTyped
+                    key={key}
+                    backSpeed={50}
+                    strings={[
+                      "Frontend Developer",
+                      "Network Engineer",
+                      "Software Developer",
+                    ]}
+                    typeSpeed={50}
+                    onComplete={restartTyping}
+                    typedRef={function noRefCheck() {}}
+                    style={{ color: "#C61036" }}
+                    cursorChar=">"
+                  />
+                </Stack>
               </Typography>
               <Typography
                 variant="h5"
                 fontWeight={400}
                 align="left"
-                fontSize={{ xs: "1rem", sm: "1.4rem", md: "1.5rem" }}
+                fontSize={{ xs: "1.2rem", sm: "1.4rem", md: "1.5rem" }}
               >
                 When the world gives you bugs, I code them into features.
                 <br />
