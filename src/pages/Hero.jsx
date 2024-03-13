@@ -76,7 +76,7 @@ export default function Hero() {
               <Typography
                 variant="h2"
                 fontWeight={500}
-                fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
+                fontSize={{ xs: "2rem", sm: "2.5rem", md: "2.8rem" }}
                 align="left"
               >
                 Tosin Sajo.

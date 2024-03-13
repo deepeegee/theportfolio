@@ -66,7 +66,7 @@ export default function Experience({ darkMode }) {
               textAlign={"center"}
               variant="h4"
               fontWeight={600}
-              fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
+              fontSize={{ xs: "1.8rem", md: "2.3rem" }}
             >
               Experience
             </Typography>
@@ -104,7 +104,7 @@ export default function Experience({ darkMode }) {
             textAlign={"center"}
             variant="h4"
             fontWeight={600}
-            fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
+            fontSize={{ xs: "1.8rem", md: "2.3rem" }}
           >
             Some Things I’ve Built{" "}
           </Typography>

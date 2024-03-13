@@ -5,7 +5,7 @@ import Contact from "../assets/contact-me.png";
 
 const headingStyle = {
   // Add your heading styles here
-  fontSize: "2rem",
+  fontSize:  "2rem",
   marginBottom: "1rem",
 };
 
