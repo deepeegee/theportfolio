@@ -27,7 +27,7 @@ import "./Experience.css";
 
 import Grid from "@mui/system/Unstable_Grid";
 import gsap from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Experience({ darkMode }) {
@@ -62,7 +62,12 @@ export default function Experience({ darkMode }) {
         <Stack gap={"2rem"} py={{ xs: 8, md: 10 }}>
           <Stack alignItems={"center"} justifyContent={"center"}>
             <img src={Prof} alt="" width={200} border={0} />
-            <Typography textAlign={"center"} variant="h4" fontWeight={600}>
+            <Typography
+              textAlign={"center"}
+              variant="h4"
+              fontWeight={600}
+              fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
+            >
               Experience
             </Typography>
             <Grid
@@ -91,8 +96,7 @@ export default function Experience({ darkMode }) {
         </Stack>
       </Container>
       <Container>
-        <Stack               ref={intro2}
-alignItems={"center"} justifyContent={"center"}>
+        <Stack ref={intro2} alignItems={"center"} justifyContent={"center"}>
           <img src={Proj} alt="" width={180} border={0} />
           <Typography
             alignItems={"center"}
@@ -100,6 +104,7 @@ alignItems={"center"} justifyContent={"center"}>
             textAlign={"center"}
             variant="h4"
             fontWeight={600}
+            fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
           >
             Some Things I’ve Built{" "}
           </Typography>

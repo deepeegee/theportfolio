@@ -42,7 +42,6 @@ function App() {
       <Experience darkMode={darkMode} />
       <ScrollToTopButton />
       <Footer />
-      <TwoTextBoxes/>
     </ThemeProvider>
   );
 }

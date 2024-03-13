@@ -20,6 +20,9 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import gsap from "gsap";
+gsap.registerPlugin(useGSAP);
+import { useGSAP } from "@gsap/react";
+
 
 export default function Hero() {
   const [key, setKey] = useState(0);
@@ -53,7 +56,7 @@ export default function Hero() {
 
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{ marginTop: "39px" }}>
         <Grid container spacing={1}>
           {/* Typography Container */}
           <Grid item xs={12} md={7}>
