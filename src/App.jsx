@@ -10,6 +10,7 @@ import { SwitchTextTrack } from "./mui-treasury/switch-textTrack";
 import { useMediaQuery } from "@mui/material";
 import DrawerMobileNavigation from "./components/Navbar/Sidebar"
 import TwoTextBoxes from "./components/navabr2";
+import ImageModal from "./components/Rename"
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Navbar toggleDarkMode={toggleDarkModeHandler} darkMode={darkMode} />
       )}
       <Hero />
+      <ImageModal />
       <Experience darkMode={darkMode} />
       <ScrollToTopButton />
       <Footer />

@@ -70,7 +70,7 @@ export default function HomeFooter() {
           <p>tosinorunesajo@gmail.com</p>
         </a>
         <a href="" target="_blank" rel="noreferrer" id="meeting">
-          <button style={buttonStyle}>Book a Meeting</button>
+          <button style={buttonStyle}>Say Hi</button>
         </a>
       </Stack>
       <Container maxWidth="lg">
@@ -96,7 +96,7 @@ export default function HomeFooter() {
             gap={"1rem"}
           >
             <Typography variant="subtitle2">
-              © {new Date().getFullYear()} All right Reserved
+              © {new Date().getFullYear()} OluwaTosin
             </Typography>
             <Stack direction={"row"} alignItems={"center"} gap={"1rem"}>
               {socialHolder.subs.map((item, id) => (

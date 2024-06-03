@@ -25,9 +25,12 @@ import { useGSAP } from "@gsap/react";
 
 export default function Hero() {
   const [key, setKey] = useState(0);
+  const restartDelay = 2000
 
   const restartTyping = () => {
-    setKey((prevKey) => prevKey + 1);
+    setTimeout(() => { 
+      setKey((prevKey) => prevKey + 1);
+     }, restartDelay)
   };
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -84,7 +87,7 @@ export default function Hero() {
                 <Stack style={{ height: "65px" }}>
                   <ReactTyped
                     key={key}
-                    backSpeed={50}
+                    backSpeed={45}
                     strings={[
                       "Frontend Developer",
                       "Network Engineer",
@@ -95,6 +98,7 @@ export default function Hero() {
                     typedRef={function noRefCheck() {}}
                     style={{ color: "#C61036" }}
                     cursorChar=">"
+                    loop
                   />
                 </Stack>
               </Typography>

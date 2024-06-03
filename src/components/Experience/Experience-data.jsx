@@ -1,15 +1,17 @@
+import Port from "..//..//assets/portfolio.png";
+
 export const experienceData = [
     {
       projectName: 'E-commerce Platform',
       description: 'A robust e-commerce platform with advanced features and seamless user experience.',
       technologiesUsed: ['React', 'Node.js', 'Express', 'MongoDB'],
-      imageUrl: '/static/images/projects/ecommerce.jpg',
+      imageUrl: Port,
     },
     {
       projectName: 'Portfolio Website',
       description: 'A personal portfolio showcasing various projects and skills of the developer.',
       technologiesUsed: ['React', 'CSS', 'HTML'],
-      imageUrl: '/static/images/projects/portfolio.jpg',
+      imageUrl: Port,
     },
     {
       projectName: 'Social Media App',
