@@ -36,22 +36,6 @@ const centerStyle = {
 export default function HomeFooter() {
   return (
     <Box py={{ xs: 6, md: 1 }} minHeight={100} id="contact">
-      <Box>
-        <Container sx={{ flex: 1 }}>
-          <Stack>
-            <img
-              src
-              alt=""
-              width={{ xs: "60%", md: "80%", lg: 370 }}
-              mx="auto" // Center the image horizontally
-              sx={{
-                display: { xs: "block", md: "none" },
-                marginBottom: { xs: 4, md: 0 },
-              }}
-            />
-          </Stack>
-        </Container>
-      </Box>
       <Stack
         alignItems={"center"}
         style={centerStyle}
@@ -74,7 +58,13 @@ export default function HomeFooter() {
         <Typography
           variant="body2"
           color="text.secondary"
-          sx={{ marginTop: 2, fontSize: "0.9rem" }}
+          sx={{ 
+            marginTop: 2, 
+            fontSize: { xs: "0.8rem", sm: "0.9rem" },
+            textAlign: "center",
+            maxWidth: { xs: "280px", sm: "400px" },
+            lineHeight: 1.4
+          }}
         >
           Based in Lagos, Nigeria • Available for remote opportunities
         </Typography>
