@@ -45,6 +45,18 @@ export default function MediaCard({ projectIndex }) {
 
   const imgSize = isSmScreen ? "25em" : "68.4em";
 
+  const handleLiveDemo = () => {
+    if (experience.liveDemo && experience.liveDemo !== 'https://your-ecommerce-demo.com') {
+      window.open(experience.liveDemo, '_blank');
+    }
+  };
+
+  const handleGitHub = () => {
+    if (experience.githubLink && experience.githubLink !== 'https://github.com/yourusername/ecommerce-platform') {
+      window.open(experience.githubLink, '_blank');
+    }
+  };
+
   return (
     <ThemeProvider
       theme={currentTheme.palette.mode === "dark" ? darkTheme : theme}
@@ -65,11 +77,31 @@ export default function MediaCard({ projectIndex }) {
           </CardActionArea>
 
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography 
+              gutterBottom 
+              variant="h4" 
+              component="div"
+              fontWeight={600}
+              fontSize={{ xs: "1.3rem", sm: "1.4rem", md: "1.5rem" }}
+              lineHeight={1.2}
+              sx={{ marginBottom: 2 }}
+            >
               {experience.projectName}
             </Typography>
-            <Typography variant="body2">{experience.description}</Typography>
-            <Typography variant="body3">
+            <Typography 
+              variant="body1" 
+              sx={{ marginBottom: 2 }}
+              fontSize={{ xs: "0.95rem", sm: "1rem", md: "1.05rem" }}
+              lineHeight={1.6}
+              color="text.secondary"
+            >
+              {experience.description}
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="text.secondary"
+              fontSize={{ xs: "0.9rem", sm: "0.95rem", md: "1rem" }}
+            >
               {experience.technologiesUsed.join(", ")}
             </Typography>
           </CardContent>
@@ -79,6 +111,7 @@ export default function MediaCard({ projectIndex }) {
               onMouseLeave={handleLiveButtonHover}
             >
               <Button
+                onClick={handleLiveDemo}
                 style={{
                   backgroundColor: isLiveButtonHovered
                     ? currentTheme.palette.primary.main
@@ -100,6 +133,7 @@ export default function MediaCard({ projectIndex }) {
               onMouseLeave={handleGitButtonHover}
             >
               <Button
+                onClick={handleGitHub}
                 style={{
                   backgroundColor: isGitButtonHovered
                     ? currentTheme.palette.primary.main

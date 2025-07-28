@@ -4,6 +4,29 @@ import { AppBar, Toolbar, Button, Box, Stack, useMediaQuery } from "@mui/materia
 const Navbar = ({ toggleDarkMode, darkMode }) => {
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleAboutClick = () => {
+    scrollToSection('about');
+  };
+
+  const handleProjectsClick = () => {
+    scrollToSection('experience');
+  };
+
+  const handleContactClick = () => {
+    scrollToSection('contact');
+  };
+
   return (
     <AppBar
       position="sticky"
@@ -28,6 +51,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
             justifyContent="center"
           >
             <Button
+              onClick={handleHomeClick}
               sx={{
                 fontWeight: 900,
                 fontSize: "1rem",
@@ -56,6 +80,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
               Home
             </Button>
             <Button
+              onClick={handleAboutClick}
               sx={{
                 fontWeight: 900,
                 fontSize: "1rem",
@@ -84,6 +109,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
               About
             </Button>
             <Button
+              onClick={handleProjectsClick}
               sx={{
                 fontWeight: 900,
                 fontSize: "1rem",
@@ -112,6 +138,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
               Projects
             </Button>
             <Button
+              onClick={handleContactClick}
               sx={{
                 fontWeight: 900,
                 fontSize: "1rem",

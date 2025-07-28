@@ -24,9 +24,9 @@ export const footerLinks = [
 export const socialHolder = {
   title: "Social",
   subs: [
-    { link: "Facebook", urlLink: "https://facebook.com/", img: Fb },
-    { link: "LinkedIn", urlLink: "https://linkedIn.com/", img: LinkedIn },
-    { link: "X", urlLink: "https://twitter.com/", img: Tw },
+    { link: "Facebook", urlLink: "https://facebook.com/yourusername", img: Fb },
+    { link: "LinkedIn", urlLink: "https://linkedin.com/in/yourusername", img: LinkedIn },
+    { link: "X", urlLink: "https://twitter.com/yourusername", img: Tw },
   ],
 };
 

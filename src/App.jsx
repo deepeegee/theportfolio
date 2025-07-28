@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { ThemeProvider, CssBaseline, Button } from "@mui/material";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./pages/Hero";
+import About from "./pages/About";
 import Experience from "./components/Experience/Experience";
+import Blog from "./pages/Blog";
 import ScrollToTopButton from "./components/Scrolltotop";
 import Footer from "./pages/Footer";
 import { theme, darkTheme } from "./Theme/Theme";
@@ -40,6 +42,7 @@ function App() {
         <Navbar toggleDarkMode={toggleDarkModeHandler} darkMode={darkMode} />
       )}
       <Hero />
+      <About />
       {/* <ImageModal /> */}
       <Experience darkMode={darkMode} />
       <ScrollToTopButton />

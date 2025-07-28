@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
-  faXTwitter,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import gsap from "gsap";
@@ -55,6 +54,18 @@ export default function Hero() {
     );
   }, []);
 
+  const handleSocialClick = (platform) => {
+    const socialLinks = {
+      linkedin: 'https://www.linkedin.com/in/orunesajo-oluwatosin-9696551b2/',
+      github: 'https://github.com/deepeegee',
+      whatsapp: 'https://wa.me/2347081450009'
+    };
+    
+    if (socialLinks[platform]) {
+      window.open(socialLinks[platform], '_blank');
+    }
+  };
+
   return (
     <>
       <Container maxWidth="lg" style={{ marginTop: "39px" }}>
@@ -69,18 +80,20 @@ export default function Hero() {
               padding="50px"
             >
               <Typography
-                variant="h5"
+                variant="h6"
                 fontWeight={500}
                 align="left"
-                fontSize={{ xs: "1.2rem", sm: "1.4rem", md: "1.5rem" }}
+                fontSize={{ xs: "1.1rem", sm: "1.2rem", md: "1.3rem" }}
+                color="text.secondary"
               >
                 Hey there! My name is
               </Typography>
               <Typography
-                variant="h2"
-                fontWeight={500}
-                fontSize={{ xs: "2rem", sm: "2.5rem", md: "2.8rem" }}
+                variant="h1"
+                fontWeight={700}
+                fontSize={{ xs: "2.5rem", sm: "3rem", md: "3.5rem" }}
                 align="left"
+                lineHeight={1.1}
               >
                 Tosin Sajo.
                 <br />I am a {""}
@@ -106,7 +119,9 @@ export default function Hero() {
                 variant="h5"
                 fontWeight={400}
                 align="left"
-                fontSize={{ xs: "1.2rem", sm: "1.4rem", md: "1.5rem" }}
+                fontSize={{ xs: "1.1rem", sm: "1.2rem", md: "1.3rem" }}
+                lineHeight={1.6}
+                color="text.secondary"
               >
                 When the world gives you bugs, I code them into features.
                 <br />
@@ -116,7 +131,7 @@ export default function Hero() {
               </Typography>
               <Grid container spacing={2}>
                 <Grid item>
-                  <IconButton>
+                  <IconButton onClick={() => handleSocialClick('linkedin')}>
                     <FontAwesomeIcon
                       icon={faLinkedin}
                       style={{ fontSize: iconSize }}
@@ -124,7 +139,7 @@ export default function Hero() {
                   </IconButton>
                 </Grid>
                 <Grid item>
-                  <IconButton>
+                  <IconButton onClick={() => handleSocialClick('github')}>
                     <FontAwesomeIcon
                       icon={faGithub}
                       style={{ fontSize: iconSize }}
@@ -132,15 +147,7 @@ export default function Hero() {
                   </IconButton>
                 </Grid>
                 <Grid item>
-                  <IconButton>
-                    <FontAwesomeIcon
-                      icon={faXTwitter}
-                      style={{ fontSize: iconSize }}
-                    />
-                  </IconButton>
-                </Grid>
-                <Grid item>
-                  <IconButton>
+                  <IconButton onClick={() => handleSocialClick('whatsapp')}>
                     <FontAwesomeIcon
                       icon={faWhatsapp}
                       style={{ fontSize: iconSize }}

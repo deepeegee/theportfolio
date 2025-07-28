@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
-import { socialHolder } from "../utils/navLinks";
 import Contact from "../assets/contact-me.png";
 
 const headingStyle = {
@@ -36,7 +35,7 @@ const centerStyle = {
 
 export default function HomeFooter() {
   return (
-    <Box py={{ xs: 6, md: 1 }} minHeight={100}>
+    <Box py={{ xs: 6, md: 1 }} minHeight={100} id="contact">
       <Box>
         <Container sx={{ flex: 1 }}>
           <Stack>
@@ -69,9 +68,16 @@ export default function HomeFooter() {
         >
           <p>tosinorunesajo@gmail.com</p>
         </a>
-        <a href="" target="_blank" rel="noreferrer" id="meeting">
+        <a href="mailto:tosinorunesajo@gmail.com" target="_blank" rel="noreferrer" id="meeting">
           <button style={buttonStyle}>Say Hi</button>
         </a>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ marginTop: 2, fontSize: "0.9rem" }}
+        >
+          Based in Lagos, Nigeria • Available for remote opportunities
+        </Typography>
       </Stack>
       <Container maxWidth="lg">
         <Stack
@@ -92,19 +98,12 @@ export default function HomeFooter() {
           <Stack
             direction={"row"}
             flexWrap={"wrap"}
-            justifyContent={"space-between"}
+            justifyContent={"center"}
             gap={"1rem"}
           >
-            <Typography variant="subtitle2">
-              © {new Date().getFullYear()} OluwaTosin
+            <Typography variant="subtitle2" textAlign="center">
+              © 2025 OluwaTosin
             </Typography>
-            <Stack direction={"row"} alignItems={"center"} gap={"1rem"}>
-              {socialHolder.subs.map((item, id) => (
-                <a key={id} href={item.link} target="_blank">
-                  <Box component={"img"} src={item.img} width={25} />
-                </a>
-              ))}
-            </Stack>
           </Stack>
         </Box>
       </Container>
