@@ -6,6 +6,22 @@ import Pav from "..//..//assets/imgs/pav.png";
 import GitHubLogo from "..//..//assets/imgs/GitHub-Logo.png";
 
 export const experienceData = [
+     {
+      projectName: 'ThesispenAI',
+      description: 'An AI-powered thesis writing assistant that helps students and researchers improve their academic writing. Built with modern web technologies and integrated AI services for content enhancement and grammar checking. Features include real-time editing suggestions and plagiarism detection.',
+      technologiesUsed: ['React', 'TypeScript', 'Vite', 'AI Integration', 'Node.js'],
+      imageUrl: Thesis,
+      liveDemo: 'https://thesispen-ai.vercel.app/',
+      githubLink: 'https://github.com/deepeegee/ThesispenAI-frontend',
+    },
+    {
+      projectName: 'Pavilion Security Manager',
+      description: 'A comprehensive security management system for residential and commercial properties. Features include visitor management, access control, incident reporting, and real-time monitoring dashboard. Built to streamline security operations and improve safety protocols.',
+      technologiesUsed: ['React', 'TypeScript', 'Vite', 'Security APIs', 'Real-time Data'],
+      imageUrl: Pav,
+      liveDemo: 'https://pavilion-security-fe.vercel.app',
+      githubLink: 'https://github.com/deepeegee/Pavilion-Security-FE',
+    },
     {
       projectName: 'NGO Website (Project12)',
       description: 'A comprehensive website for a non-governmental organization built with React, TypeScript, and Vite. Features include donation management, event calendar, volunteer registration, and responsive design for accessibility. The platform helps NGOs connect with donors and volunteers effectively.',
@@ -21,22 +37,6 @@ export const experienceData = [
       imageUrl: NGO2,
       liveDemo: 'https://ngo-three-teal.vercel.app',
       githubLink: 'https://github.com/deepeegee/NGO',
-    },
-    {
-      projectName: 'ThesispenAI',
-      description: 'An AI-powered thesis writing assistant that helps students and researchers improve their academic writing. Built with modern web technologies and integrated AI services for content enhancement and grammar checking. Features include real-time editing suggestions and plagiarism detection.',
-      technologiesUsed: ['React', 'TypeScript', 'Vite', 'AI Integration', 'Node.js'],
-      imageUrl: Thesis,
-      liveDemo: 'https://thesispen-ai.vercel.app/',
-      githubLink: 'https://github.com/deepeegee/ThesispenAI-frontend',
-    },
-    {
-      projectName: 'Pavilion Security Manager',
-      description: 'A comprehensive security management system for residential and commercial properties. Features include visitor management, access control, incident reporting, and real-time monitoring dashboard. Built to streamline security operations and improve safety protocols.',
-      technologiesUsed: ['React', 'TypeScript', 'Vite', 'Security APIs', 'Real-time Data'],
-      imageUrl: Pav,
-      liveDemo: 'https://pavilion-security-fe.vercel.app',
-      githubLink: 'https://github.com/deepeegee/Pavilion-Security-FE',
     },
     {
       projectName: 'Portfolio Website',

@@ -74,10 +74,25 @@ export default function Experience({ darkMode }) {
   }, []);
 
   const skillsData = {
-    Languages: ['JavaScript (ES6)', 'TypeScript', 'HTML', 'CSS'],
-    Frameworks: ['React', 'Node', 'Wordpress', 'Tailwind CSS', 'Next.js', 'Vite', 'Material UI'],
-    Tools: ['Git & Github', 'Gulp & Grunt', 'Chrome DevTools', 'Postman', 'MongoDB', 'Express'],
-    Design: ['Figma', 'Prototyping', 'Wireframing', 'User Testing']
+    Languages: ["JavaScript (ES6)", "TypeScript", "HTML", "CSS"],
+    Frameworks: [
+      "React",
+      "Node",
+      "Wordpress",
+      "Tailwind CSS",
+      "Next.js",
+      "Vite",
+      "Material UI",
+    ],
+    Tools: [
+      "Git & Github",
+      "Gulp & Grunt",
+      "Chrome DevTools",
+      "Postman",
+      "MongoDB",
+      "Express",
+    ],
+    Design: ["Figma", "Prototyping", "Wireframing", "User Testing"],
   };
 
   return (
@@ -117,7 +132,7 @@ export default function Experience({ darkMode }) {
                 />
               ))}
             </GridSystem>
-            
+
             {/* Technologies Text */}
             <Typography
               textAlign="center"
@@ -131,64 +146,62 @@ export default function Experience({ darkMode }) {
             >
               Here are a few technologies I've been working with recently:
             </Typography>
-            
+
             {/* Skills Grid */}
- 
 
-<Container maxWidth="lg">
-  <Stack ref={intro4} alignItems="center" spacing={4}>
-    <Grid container spacing={4} justifyContent="center">
-      {Object.entries(skillsData).map(([category, skills]) => (
-        <Grid item xs={12} sm={6} md={3} key={category}>
-          <Stack spacing={2} alignItems="center">
-            <Typography
-              variant="h6"
-              fontWeight={600}
-              color="#C61036"
-              fontSize={{ xs: "1rem", sm: "1.1rem", md: "1.2rem" }}
-              textAlign="center"
-            >
-              {category}
-            </Typography>
+            <Container maxWidth="lg">
+              <Stack ref={intro4} alignItems="center" spacing={4}>
+                <Grid container spacing={4} justifyContent="center">
+                  {Object.entries(skillsData).map(([category, skills]) => (
+                    <Grid item xs={12} sm={6} md={3} key={category}>
+                      <Stack spacing={2} alignItems="center">
+                        <Typography
+                          variant="h6"
+                          fontWeight={600}
+                          color="#C61036"
+                          fontSize={{ xs: "1rem", sm: "1.1rem", md: "1.2rem" }}
+                          textAlign="center"
+                        >
+                          {category}
+                        </Typography>
 
-            <Stack
-              direction="row"
-              flexWrap="wrap"
-              justifyContent="center"
-              spacing={1}
-              useFlexGap
-            >
-              {skills.map((skill, index) => (
-                <Chip
-                  key={index}
-                  label={skill}
-                  variant="outlined"
-                  icon={<CodeIcon sx={{ color: "#C61036" }} />}
-                  sx={{
-                    borderColor: "#C61036",
-                    color: "text.secondary",
-                    fontSize: { xs: "0.75rem", sm: "0.8rem" },
-                  }}
-                />
-              ))}
-            </Stack>
-          </Stack>
-        </Grid>
-      ))}
-    </Grid>
-  </Stack>
-</Container>
-
+                        <Stack
+                          direction="row"
+                          flexWrap="wrap"
+                          justifyContent="center"
+                          spacing={1}
+                          useFlexGap
+                        >
+                          {skills.map((skill, index) => (
+                            <Chip
+                              key={index}
+                              label={skill}
+                              variant="outlined"
+                              icon={<CodeIcon sx={{ color: "#C61036" }} />}
+                              sx={{
+                                borderColor: "#C61036",
+                                color: "text.secondary",
+                                fontSize: { xs: "0.75rem", sm: "0.8rem" },
+                              }}
+                            />
+                          ))}
+                        </Stack>
+                      </Stack>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Stack>
+            </Container>
           </Stack>
         </Stack>
       </Container>
-      
+
       {/* Work History Section */}
       <WorkHistory />
-      
+
       {/* Spacing between sections */}
       <Box sx={{ py: { xs: 6, md: 8 } }} />
-      
+
       <Container>
         <Stack ref={intro3} alignItems={"center"} justifyContent={"center"}>
           <img src={Proj} alt="" width={180} border={0} />
