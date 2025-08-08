@@ -7,7 +7,12 @@ import {
   Button,
   useTheme,
   useMediaQuery,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { workHistoryData } from "./WorkHistory-data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,26 +24,31 @@ export default function WorkHistory() {
   const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const intro1 = useRef(null);
   const intro2 = useRef(null);
+  const tabsRef = useRef([]);
 
   useEffect(() => {
-    const el = intro1;
+    // Heading animation
     gsap.fromTo(
-      el.current,
-      { opacity: 0, x: -150 },
-      { opacity: 1, x: 0, duration: 4, ease: "power3.out" }
+      intro1.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
     );
-    ScrollTrigger.create({
-      trigger: el.current,
-      start: "top center",
-      end: "bottom center",
-      scrub: true,
-    });
-    
-    const el2 = intro2;
+
+    // Staggered tabs reveal on scroll
     gsap.fromTo(
-      el2.current,
-      { opacity: 0, y: -30 },
-      { opacity: 1, y: 0, duration: 4, ease: "power3.out" }
+      tabsRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: intro2.current,
+          start: "top 80%",
+        },
+      }
     );
   }, []);
 
@@ -50,9 +60,9 @@ export default function WorkHistory() {
     <>
       <Container maxWidth="xl">
         <Stack gap={"2rem"} py={{ xs: 8, md: 10 }}>
-          <Stack ref={intro1} alignItems={"center"} justifyContent={"center"}>
+          <Stack ref={intro1} alignItems="center" justifyContent="center">
             <Typography
-              textAlign={"center"}
+              textAlign="center"
               variant="h2"
               fontWeight={700}
               fontSize={{ xs: "2rem", sm: "2.5rem", md: "3rem" }}
@@ -63,35 +73,49 @@ export default function WorkHistory() {
           </Stack>
         </Stack>
       </Container>
-      
+
       <Container maxWidth="lg">
         <Stack ref={intro2} alignItems="center" spacing={4}>
           {/* Tab Navigation */}
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "row", md: "row" },
-              overflowX: { xs: "auto", md: "visible" },
+              flexDirection: "row",
+              overflowX: isSmScreen ? "auto" : "visible",
               justifyContent: "center",
               gap: 2,
+              pb: 1,
+              "&::-webkit-scrollbar": { display: "none" },
             }}
+            role="tablist"
+            aria-label="Work history tabs"
           >
             {workHistoryData.map((job, index) => (
               <Button
                 key={index}
+                ref={(el) => (tabsRef.current[index] = el)}
                 onClick={() => handleTabClick(index)}
+                aria-selected={activeTab === index}
                 sx={{
-                  minWidth: { xs: "150px", md: "200px" },
+                  minWidth: { xs: "140px", md: "200px" },
                   justifyContent: "center",
                   textAlign: "center",
-                  padding: "12px 20px",
-                  borderBottom: activeTab === index ? "2px solid #C61036" : "2px solid transparent",
-                  backgroundColor: activeTab === index ? "rgba(198, 16, 54, 0.1)" : "transparent",
+                  padding: "10px 18px",
+                  borderRadius: "50px",
+                  border:
+                    activeTab === index
+                      ? "2px solid #C61036"
+                      : "2px solid transparent",
+                  backgroundColor:
+                    activeTab === index ? "rgba(198, 16, 54, 0.08)" : "transparent",
                   color: activeTab === index ? "#C61036" : "inherit",
+                  transition: "all 0.25s ease",
                   "&:hover": {
-                    backgroundColor: "rgba(198, 16, 54, 0.05)",
+                    backgroundColor: "rgba(198, 16, 54, 0.06)",
+                    transform: "translateY(-2px)",
                   },
                 }}
+                role="tab"
               >
                 <Typography
                   variant="body2"
@@ -104,50 +128,68 @@ export default function WorkHistory() {
             ))}
           </Box>
 
-          {/* Tab Content */}
-          <Box sx={{ maxWidth: "800px", width: "100%" }}>
+          {/* Tab Content (centered block, left-aligned text) */}
+          <Box sx={{ maxWidth: "800px", width: "100%", mx: "auto" }}>
             {workHistoryData[activeTab] && (
-              <Stack spacing={3} alignItems="center" textAlign="center">
-                <Typography
-                  variant="h4"
-                  fontWeight={600}
-                  fontSize={{ xs: "1.3rem", sm: "1.4rem", md: "1.5rem" }}
-                  lineHeight={1.2}
+              <Stack spacing={3} alignItems="center" textAlign="left">
+ <Typography
+    variant="h4"
+    fontWeight={600}
+    fontSize={{ xs: "1.3rem", sm: "1.4rem", md: "1.5rem" }}
+    lineHeight={1.2}
+  >
+    {workHistoryData[activeTab].role} @ {workHistoryData[activeTab].company}
+  </Typography>
+
+  <Typography
+    variant="body1"
+    color="text.secondary"
+    fontSize={{ xs: "1rem", sm: "1.05rem", md: "1.1rem" }}
+  >
+    {workHistoryData[activeTab].duration}
+  </Typography>
+
+                <List
+                  disablePadding
+                  sx={{
+                    width: "100%",
+                    maxWidth: "760px",
+                    mt: 1,
+                  }}
                 >
-                  {workHistoryData[activeTab].role} @ {workHistoryData[activeTab].company}
-                </Typography>
-                
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  fontSize={{ xs: "1rem", sm: "1.05rem", md: "1.1rem" }}
-                >
-                  {workHistoryData[activeTab].duration}
-                </Typography>
-                
-                <Stack spacing={2} marginTop={2} alignItems="center">
-                  {workHistoryData[activeTab].responsibilities.map((responsibility, index) => (
-                    <Typography
-                      key={index}
-                      variant="body1"
-                      fontSize={{ xs: "0.95rem", sm: "1rem", md: "1.05rem" }}
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        maxWidth: "600px",
-                        "&::before": {
-                          content: '"▹"',
-                          color: "#C61036",
-                          marginRight: "8px",
-                          fontSize: "1.2rem",
-                        },
-                      }}
-                      color="text.secondary"
-                    >
-                      {responsibility}
-                    </Typography>
-                  ))}
-                </Stack>
+                  {workHistoryData[activeTab].responsibilities.map(
+                    (responsibility, index) => (
+                      <ListItem
+                        key={index}
+                        alignItems="flex-start"
+                        sx={{
+                          paddingY: 0.8,
+                          paddingX: 0,
+                        }}
+                      >
+                        <ListItemIcon
+                          sx={{
+                            minWidth: "34px",
+                            color: "#C61036",
+                            mt: "6px",
+                          }}
+                        >
+                          <FiberManualRecordIcon sx={{ fontSize: "0.6rem" }} />
+                        </ListItemIcon>
+
+                        <ListItemText
+                          primary={responsibility}
+                          primaryTypographyProps={{
+                            fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+                            color: "text.secondary",
+                            lineHeight: 1.4,
+                            align: "left",
+                          }}
+                        />
+                      </ListItem>
+                    )
+                  )}
+                </List>
               </Stack>
             )}
           </Box>
@@ -155,4 +197,4 @@ export default function WorkHistory() {
       </Container>
     </>
   );
-} 
+}

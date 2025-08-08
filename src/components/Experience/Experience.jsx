@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { stackImgs } from "../../utils/StackImgs";
 import Prof from "../../assets/proficiency.png";
 import Proj from "../../assets/project.png";
-
+import { Chip } from "@mui/material";
+import CodeIcon from "@mui/icons-material/Code"; // Optional: you can pick others
 import {
   Toolbar,
   IconButton,
@@ -74,8 +75,8 @@ export default function Experience({ darkMode }) {
 
   const skillsData = {
     Languages: ['JavaScript (ES6)', 'TypeScript', 'HTML', 'CSS'],
-    Frameworks: ['React', 'Node', 'Wordpress'],
-    Tools: ['Git & Github', 'Gulp & Grunt', 'Chrome DevTools', 'Postman', 'MongoDB'],
+    Frameworks: ['React', 'Node', 'Wordpress', 'Tailwind CSS', 'Next.js', 'Vite', 'Material UI'],
+    Tools: ['Git & Github', 'Gulp & Grunt', 'Chrome DevTools', 'Postman', 'MongoDB', 'Express'],
     Design: ['Figma', 'Prototyping', 'Wireframing', 'User Testing']
   };
 
@@ -132,47 +133,52 @@ export default function Experience({ darkMode }) {
             </Typography>
             
             {/* Skills Grid */}
-            <Container maxWidth="lg">
-              <Stack ref={intro4} alignItems="center" spacing={4}>
-                <Grid container spacing={4} justifyContent="center">
-                  {Object.entries(skillsData).map(([category, skills]) => (
-                    <Grid item xs={12} sm={6} md={3} key={category}>
-                      <Stack spacing={2} alignItems="center">
-                        <Typography
-                          variant="h6"
-                          fontWeight={600}
-                          color="#C61036"
-                          fontSize={{ xs: "1rem", sm: "1.1rem", md: "1.2rem" }}
-                        >
-                          {category}
-                        </Typography>
-                        <Stack spacing={1} alignItems="center">
-                          {skills.map((skill, index) => (
-                            <Typography
-                              key={index}
-                              variant="body2"
-                              fontSize={{ xs: "0.9rem", sm: "0.95rem", md: "1rem" }}
-                              textAlign="center"
-                              color="text.secondary"
-                              sx={{
-                                "&::before": {
-                                  content: '"▹"',
-                                  color: "#C61036",
-                                  marginRight: "6px",
-                                  fontSize: "1rem",
-                                },
-                              }}
-                            >
-                              {skill}
-                            </Typography>
-                          ))}
-                        </Stack>
-                      </Stack>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Stack>
-            </Container>
+ 
+
+<Container maxWidth="lg">
+  <Stack ref={intro4} alignItems="center" spacing={4}>
+    <Grid container spacing={4} justifyContent="center">
+      {Object.entries(skillsData).map(([category, skills]) => (
+        <Grid item xs={12} sm={6} md={3} key={category}>
+          <Stack spacing={2} alignItems="center">
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              color="#C61036"
+              fontSize={{ xs: "1rem", sm: "1.1rem", md: "1.2rem" }}
+              textAlign="center"
+            >
+              {category}
+            </Typography>
+
+            <Stack
+              direction="row"
+              flexWrap="wrap"
+              justifyContent="center"
+              spacing={1}
+              useFlexGap
+            >
+              {skills.map((skill, index) => (
+                <Chip
+                  key={index}
+                  label={skill}
+                  variant="outlined"
+                  icon={<CodeIcon sx={{ color: "#C61036" }} />}
+                  sx={{
+                    borderColor: "#C61036",
+                    color: "text.secondary",
+                    fontSize: { xs: "0.75rem", sm: "0.8rem" },
+                  }}
+                />
+              ))}
+            </Stack>
+          </Stack>
+        </Grid>
+      ))}
+    </Grid>
+  </Stack>
+</Container>
+
           </Stack>
         </Stack>
       </Container>

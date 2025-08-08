@@ -56,18 +56,19 @@ export default function About() {
                 About Me
               </Typography>
               <Typography
-                variant="h5"
-                fontWeight={400}
-                align="center"
-                fontSize={{ xs: "1.1rem", sm: "1.2rem", md: "1.3rem" }}
-                lineHeight={1.6}
-                maxWidth="800px"
-                color="text.secondary"
-              >
-                Hello! My name is Tosin and I enjoy creating things that live on the internet. 
-                My interest in web development started when I decided to try building custom 
-                solutions — turns out hacking together features taught me a lot about HTML, CSS & JavaScript!
-              </Typography>
+  variant="h5"
+  fontWeight={400}
+  align="center"
+  fontSize={{ xs: "1.1rem", sm: "1.2rem", md: "1.3rem" }}
+  lineHeight={1.6}
+  maxWidth="800px"
+  color="text.secondary"
+>
+  I work across the stack, but my real passion lies in building thoughtful and accessible user interfaces. 
+  I enjoy crafting experiences that are not just functional, but clear, responsive, and easy to use.  
+  Whether it's designing a new feature or refining the small details, I aim to bring intention and usability to every project I touch.
+</Typography>
+
               <Typography
                 variant="h5"
                 fontWeight={400}
